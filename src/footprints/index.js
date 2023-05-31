@@ -17,4 +17,6 @@ module.exports = {
     slider: require('./slider'),
     trrs: require('./trrs'),
     via: require('./via'),
+    sk6812led: require('./sk6812led'),
+    promicro_reversible: require('./promicro-reversible'),
 }
