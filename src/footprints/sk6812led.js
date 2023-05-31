@@ -13,6 +13,13 @@ module.exports = {
 
                         (module SK6812 (layer F.Cu) (tedit 5B24D78F)
                         ${p.at /* parametric position */}
+                       (fp_text reference "${p.ref}" (at 0 -2.6 180) (layer "F.SilkS") ${p.ref_hide}
+                          (effects (font (size 1 1) (thickness 0.15)))
+                        (tstamp ${p.ref}c13c340-5506-47b0-bd88-0ff788695ebb))
+                       (fp_text value "LED_choc_6028R" (at -9.425 3.85) (layer "F.Fab") hide
+                          (effects (font (size 1 1) (thickness 0.15)) (justify left))
+                        (tstamp ${p.ref}8974115-1ec4-404e-a8d3-4a67e510f9a5))
+
                         (fp_text user "18x17 spacing" (at 0 12.3 -180) (layer "Dwgs.User") hide
                             (effects (font (size 1 1) (thickness 0.15)))
                           (tstamp ${p.ref}01f2dd-879c-4cca-bd99-30cf242e78bc)
@@ -29,6 +36,8 @@ module.exports = {
                             (effects (font (size 1 1) (thickness 0.15)))
                           (tstamp ${p.ref}046f6c-db09-4c13-bea3-acf3a1fc169e)
                         )
+                        (fp_line (start -9 -3.8) (end -9 13.2)
+                         (stroke (width 0.12) (type solid)) (layer "Dwgs.User") (tstamp ${p.ref}0e7d69a-464c-4cb3-9fa1-5fda1f9fb8ef))
                         (fp_line (start -9 13.2) (end 9 13.2)
                           (stroke (width 0.12) (type solid)) (layer "Dwgs.User") (tstamp ${p.ref}827b15-c871-4e33-b71f-907c9af918ca))
                         (fp_line (start -1.6 -1.399999) (end 1.1 -1.399999)
@@ -69,10 +78,18 @@ module.exports = {
                           (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}dc4918-2732-4a8e-b1f3-71962b9c6040))
                         (fp_line (start 1.699999 0.702843) (end 1.699999 -0.702841)
                           (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}bedbf2-e9fa-415c-9c65-3cc8f2c915bd))
+                       (fp_line (start -3.8 -1.999999) (end 3.8 -1.999999)
+                         (stroke (width 0.05) (type solid)) (layer "F.CrtYd") (tstamp ${p.ref}1336064-d3c5-43f6-8e7a-4f2a19e27b46))
+                       (fp_line (start -3.8 2.000001) (end -3.8 -1.999999)
+                         (stroke (width 0.05) (type solid)) (layer "F.CrtYd") (tstamp ${p.ref}b7cc06e-5c6b-4b5b-9788-59d0c1a429ca))
+                       (fp_line (start 3.8 -1.999999) (end 3.8 2.000001)
+                         (stroke (width 0.05) (type solid)) (layer "F.CrtYd") (tstamp ${p.ref}4814bb0-b66a-4b0f-99cf-ca60db64c47d))
+                       (fp_line (start 3.8 2.000001) (end -3.8 2.000001)
+                         (stroke (width 0.05) (type solid)) (layer "F.CrtYd") (tstamp ${p.ref}1dcacc4-1763-4d73-97da-53316175bc94))
+
                 `
 /*
- *
-                        (fp_arc (start -1.75 -0.92) (mid -1.71 -0.81) (end -1.7 -0.70)
+                        (fp_arc (start -1.749484 -0.919719) (mid -1.712527 -0.814067) (end -1.699999 -0.702842)
                           (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}7583bc-a9e3-47e8-971f-a1f59c46318a))
                         (fp_arc (start -1.749484 -0.919719) (mid -1.63807 -1.504033) (end -1.046711 -1.568296)
                           (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}460bae-d789-4d1b-bbcd-22be04ead7e1))
@@ -97,30 +114,9 @@ module.exports = {
                         (fp_arc (start 1.749484 0.919721) (mid 1.712527 0.814069) (end 1.699999 0.702844)
                           (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}18c93f-0b69-4048-aecb-e1f20f9dc571))
 
-
- * */
+                */
                 function side(def_side) {
                         return `
-                       (fp_text reference "${p.ref}" (at 0 -2.6 180) (layer "${def_side}.SilkS") ${p.ref_hide}
-                          (effects (font (size 1 1) (thickness 0.15)))
-                        (tstamp ${def_side}c13c340-5506-47b0-bd88-0ff788695ebb))
-                       (fp_text value "LED_choc_6028R" (at -9.425 3.85) (layer "${def_side}.Fab") hide
-                          (effects (font (size 1 1) (thickness 0.15)) (justify left))
-                        (tstamp ${def_side}8974115-1ec4-404e-a8d3-4a67e510f9a5))
-                       (fp_line (start 3.8 -1.5) (end 2.9 -1.5)
-                        (stroke (width 0.12) (type solid)) (layer "${def_side}.SilkS") (tstamp ${def_side}c5ec26c-4620-4f5b-bab4-e17091987720))
-                       (fp_line (start 3.8 -0.5) (end 3.8 -1.5)
-                         (stroke (width 0.12) (type solid)) (layer "${def_side}.SilkS") (tstamp ${def_side}5237b80-571a-4060-ad8f-e7d4dab4d7ab))
-                       (fp_line (start -9 -3.8) (end -9 13.2)
-                         (stroke (width 0.12) (type solid)) (layer "Dwgs.User") (tstamp ${def_side}0e7d69a-464c-4cb3-9fa1-5fda1f9fb8ef))
-                        (fp_line (start -3.8 -1.999999) (end 3.8 -1.999999)
-                         (stroke (width 0.05) (type solid)) (layer "${def_side}.CrtYd") (tstamp ${def_side}1336064-d3c5-43f6-8e7a-4f2a19e27b46))
-                       (fp_line (start -3.8 2.000001) (end -3.8 -1.999999)
-                         (stroke (width 0.05) (type solid)) (layer "${def_side}.CrtYd") (tstamp ${def_side}b7cc06e-5c6b-4b5b-9788-59d0c1a429ca))
-                       (fp_line (start 3.8 -1.999999) (end 3.8 2.000001)
-                         (stroke (width 0.05) (type solid)) (layer "${def_side}.CrtYd") (tstamp ${def_side}4814bb0-b66a-4b0f-99cf-ca60db64c47d))
-                       (fp_line (start 3.8 2.000001) (end -3.8 2.000001)
-                         (stroke (width 0.05) (type solid)) (layer "${def_side}.CrtYd") (tstamp ${def_side}1dcacc4-1763-4d73-97da-53316175bc94))
                        (pad "1" smd roundrect (at -2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}aeb38a2-f11c-44cf-9844-0dab5893e184) ${p.VCC.str})
                        (pad "2" smd roundrect (at -2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}51eb277-d4c2-4166-8742-58c4b0d88f85) ${p.dout.str})
                        (pad "3" smd roundrect (at 2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}743bc4c-ef8b-4216-96a5-e4e95f8c7445) ${p.din.str})
