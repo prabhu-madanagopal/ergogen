@@ -3,6 +3,7 @@ module.exports = {
                 designator: 'LED',
                 side: 'F',
                 reverse: false,
+                rotate: false,
                 din: undefined,
                 dout: undefined,
                 VCC: {type: 'net', value: 'VCC'},
@@ -116,12 +117,22 @@ module.exports = {
 
                 */
                 function side(def_side) {
+                  if (p.rotate) {
                         return `
                        (pad "1" smd roundrect (at -2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}aeb38a2-f11c-44cf-9844-0dab5893e184) ${p.VCC.str})
                        (pad "2" smd roundrect (at -2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}51eb277-d4c2-4166-8742-58c4b0d88f85) ${p.dout.str})
                        (pad "3" smd roundrect (at 2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}743bc4c-ef8b-4216-96a5-e4e95f8c7445) ${p.din.str})
                        (pad "4" smd roundrect (at 2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1)
                          (chamfer_ratio 0.5) (chamfer top_left) (tstamp ${def_side}188d1cd-b0c7-4af4-b538-00c68eac0bf0) ${p.GND.str})
+
+                        `
+                  }
+                         return `
+                       (pad "1" smd roundrect (at 2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}aeb38a2-f11c-44cf-9844-0dab5893e184) ${p.VCC.str})
+                       (pad "2" smd roundrect (at 2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}51eb277-d4c2-4166-8742-58c4b0d88f85) ${p.dout.str})
+                       (pad "3" smd roundrect (at -2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}743bc4c-ef8b-4216-96a5-e4e95f8c7445) ${p.din.str})
+                       (pad "4" smd roundrect (at -2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1)
+                         (chamfer_ratio 0.5) (chamfer bottom_right) (tstamp ${def_side}188d1cd-b0c7-4af4-b538-00c68eac0bf0) ${p.GND.str})
 
                         `
                 }
