@@ -1,16 +1,16 @@
 module.exports = {
-        params: {
-                designator: 'LED',
-                side: 'F',
-                reverse: false,
-                rotate: false,
-                din: undefined,
-                dout: undefined,
-                VCC: {type: 'net', value: 'VCC'},
-                GND: {type: 'net', value: 'GND'}
-        },
-        body: p => {
-                const common = `
+  params: {
+    designator: 'LED',
+    side: 'F',
+    reverse: false,
+    rotate: false,
+    din: undefined,
+    dout: undefined,
+    VCC: {type: 'net', value: 'VCC'},
+    GND: {type: 'net', value: 'GND'}
+  },
+  body: p => {
+    const common = `
 
                         (module SK6812 (layer F.Cu) (tedit 5B24D78F)
                         ${p.at /* parametric position */}
@@ -89,36 +89,57 @@ module.exports = {
                          (stroke (width 0.05) (type solid)) (layer "F.CrtYd") (tstamp ${p.ref}1dcacc4-1763-4d73-97da-53316175bc94))
 
                 `
-/*
-                        (fp_arc (start -1.749484 -0.919719) (mid -1.712527 -0.814067) (end -1.699999 -0.702842)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}7583bc-a9e3-47e8-971f-a1f59c46318a))
-                        (fp_arc (start -1.749484 -0.919719) (mid -1.63807 -1.504033) (end -1.046711 -1.568296)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}460bae-d789-4d1b-bbcd-22be04ead7e1))
-                        (fp_arc (start -1.699999 0.702843) (mid -1.712527 0.814069) (end -1.749484 0.919721)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}83b8b4-62cb-44a0-a8b9-535fda73085e))
-                        (fp_arc (start -1.046711 1.5683) (mid -1.638071 1.504036) (end -1.749484 0.919721)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}a54be1-d326-4ccf-ad5d-6fbe12460296))
-                        (fp_arc (start -1.046711 1.5683) (mid -0.925123 1.517378) (end -0.794453 1.500001)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}273278-6735-4092-89f8-87178d61a1bb))
-                        (fp_arc (start -0.794452 -1.499999) (mid -0.925122 -1.517376) (end -1.04671 -1.568298)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}c3f646-98f9-457c-a426-e7be438a4533))
-                        (fp_arc (start 0.794453 1.5) (mid 0.925123 1.517377) (end 1.046711 1.568299)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}f04445-3aab-4c59-bf4b-421a8aa610d7))
-                        (fp_arc (start 1.046711 -1.568298) (mid 0.925123 -1.517376) (end 0.794452 -1.499999)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}80b2de-db66-422e-abdb-7433c88d0063))
-                        (fp_arc (start 1.046711 -1.568298) (mid 1.638072 -1.504034) (end 1.749484 -0.919718)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}d461c3-44bb-4452-8821-445cf00579e2))
-                        (fp_arc (start 1.699999 -0.702841) (mid 1.712527 -0.814067) (end 1.749484 -0.919719)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}bb5aef-acfb-454a-9899-2c0b70ba6bff))
-                        (fp_arc (start 1.749484 0.919721) (mid 1.638071 1.504035) (end 1.046711 1.568299)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}56d8b9-8ce0-4b24-9436-015f4244eab6))
-                        (fp_arc (start 1.749484 0.919721) (mid 1.712527 0.814069) (end 1.699999 0.702844)
-                          (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}18c93f-0b69-4048-aecb-e1f20f9dc571))
+    /*
+      (fp_arc (start -1.749484 -0.919719) (mid -1.712527 -0.814067) (end -1.699999 -0.702842)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}7583bc-a9e3-47e8-971f-a1f59c46318a))
+      (fp_arc (start -1.749484 -0.919719) (mid -1.63807 -1.504033) (end -1.046711 -1.568296)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}460bae-d789-4d1b-bbcd-22be04ead7e1))
+      (fp_arc (start -1.699999 0.702843) (mid -1.712527 0.814069) (end -1.749484 0.919721)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}83b8b4-62cb-44a0-a8b9-535fda73085e))
+      (fp_arc (start -1.046711 1.5683) (mid -1.638071 1.504036) (end -1.749484 0.919721)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}a54be1-d326-4ccf-ad5d-6fbe12460296))
+      (fp_arc (start -1.046711 1.5683) (mid -0.925123 1.517378) (end -0.794453 1.500001)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}273278-6735-4092-89f8-87178d61a1bb))
+      (fp_arc (start -0.794452 -1.499999) (mid -0.925122 -1.517376) (end -1.04671 -1.568298)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}c3f646-98f9-457c-a426-e7be438a4533))
+      (fp_arc (start 0.794453 1.5) (mid 0.925123 1.517377) (end 1.046711 1.568299)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}f04445-3aab-4c59-bf4b-421a8aa610d7))
+      (fp_arc (start 1.046711 -1.568298) (mid 0.925123 -1.517376) (end 0.794452 -1.499999)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}80b2de-db66-422e-abdb-7433c88d0063))
+      (fp_arc (start 1.046711 -1.568298) (mid 1.638072 -1.504034) (end 1.749484 -0.919718)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}d461c3-44bb-4452-8821-445cf00579e2))
+      (fp_arc (start 1.699999 -0.702841) (mid 1.712527 -0.814067) (end 1.749484 -0.919719)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}bb5aef-acfb-454a-9899-2c0b70ba6bff))
+      (fp_arc (start 1.749484 0.919721) (mid 1.638071 1.504035) (end 1.046711 1.568299)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}56d8b9-8ce0-4b24-9436-015f4244eab6))
+      (fp_arc (start 1.749484 0.919721) (mid 1.712527 0.814069) (end 1.699999 0.702844)
+      (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp ${p.ref}18c93f-0b69-4048-aecb-e1f20f9dc571))
 
-                */
-                function side(def_side) {
-                  if (p.rotate) {
-                        return `
+    */
+    function side(def_side) {
+      if (def_side == 'B') {
+        if (p.rotate) {
+          return `
+                       (pad "1" smd roundrect (at -2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}aeb38a2-f11c-44cf-9844-0dab5893e184) ${p.VCC.str})
+                       (pad "2" smd roundrect (at -2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}51eb277-d4c2-4166-8742-58c4b0d88f85) ${p.dout.str})
+                       (pad "3" smd roundrect (at 2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}743bc4c-ef8b-4216-96a5-e4e95f8c7445) ${p.din.str})
+                       (pad "4" smd roundrect (at 2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1)
+                         (chamfer_ratio 0.5) (chamfer top_right) (tstamp ${def_side}188d1cd-b0c7-4af4-b538-00c68eac0bf0) ${p.GND.str})
+
+                        `
+        }
+        return `
+                       (pad "1" smd roundrect (at 2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}aeb38a2-f11c-44cf-9844-0dab5893e184) ${p.VCC.str})
+                       (pad "2" smd roundrect (at 2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}51eb277-d4c2-4166-8742-58c4b0d88f85) ${p.dout.str})
+                       (pad "3" smd roundrect (at -2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}743bc4c-ef8b-4216-96a5-e4e95f8c7445) ${p.din.str})
+                       (pad "4" smd roundrect (at -2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1)
+                         (chamfer_ratio 0.5) (chamfer bottom_left) (tstamp ${def_side}188d1cd-b0c7-4af4-b538-00c68eac0bf0) ${p.GND.str})
+
+                        `
+      }
+
+      if (p.rotate) {
+        return `
                        (pad "1" smd roundrect (at -2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}aeb38a2-f11c-44cf-9844-0dab5893e184) ${p.VCC.str})
                        (pad "2" smd roundrect (at -2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}51eb277-d4c2-4166-8742-58c4b0d88f85) ${p.dout.str})
                        (pad "3" smd roundrect (at 2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}743bc4c-ef8b-4216-96a5-e4e95f8c7445) ${p.din.str})
@@ -126,8 +147,8 @@ module.exports = {
                          (chamfer_ratio 0.5) (chamfer top_left) (tstamp ${def_side}188d1cd-b0c7-4af4-b538-00c68eac0bf0) ${p.GND.str})
 
                         `
-                  }
-                         return `
+      }
+      return `
                        (pad "1" smd roundrect (at 2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}aeb38a2-f11c-44cf-9844-0dab5893e184) ${p.VCC.str})
                        (pad "2" smd roundrect (at 2.725 0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}51eb277-d4c2-4166-8742-58c4b0d88f85) ${p.dout.str})
                        (pad "3" smd roundrect (at -2.725 -0.75 ${p.rot - 90}) (size 0.82 1.35) (layers "${def_side}.Cu" "${def_side}.Paste" "${def_side}.Mask") (roundrect_rratio 0.1) (tstamp ${def_side}743bc4c-ef8b-4216-96a5-e4e95f8c7445) ${p.din.str})
@@ -135,21 +156,23 @@ module.exports = {
                          (chamfer_ratio 0.5) (chamfer bottom_right) (tstamp ${def_side}188d1cd-b0c7-4af4-b538-00c68eac0bf0) ${p.GND.str})
 
                         `
-                }
-                if(p.reverse) {
-                  return `
+    }
+
+
+  if(p.reverse) {
+    return `
                     ${common}
                     ${side('B')}
                     ${side('F')}
 )
                     `
-                } else {
-                  return `
+  } else {
+    return `
                     ${common}
                     ${side('F')}
 )
                     `
-                }
-        }
+  }
+}
 
 }
